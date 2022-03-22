@@ -42,4 +42,4 @@
 #### On Premises vs Hybrid
 - Security differences 
 - Cost differences
-- Liaility for data
+- Liability for data
