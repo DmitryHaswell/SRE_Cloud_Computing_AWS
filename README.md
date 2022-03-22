@@ -33,7 +33,13 @@
 
 #### AWS Infrastructure
 ![AWS-regions](AWS-regions.png)
+- North America, South America, Europe, China, Asia Pacific, South Africa, and the Middle East
 
 #### Content Delivery Network (CDN)
 - Caches static content
 - Reduce the load on the origin 
+
+#### On Premises vs Hybrid
+- Security differences 
+- Cost differences
+- Liaility for data
