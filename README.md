@@ -43,3 +43,7 @@
 - Security differences 
 - Cost differences
 - Liability for data
+
+
+#### Diagram
+![AWS-Diagram](AWS-diagram.png)
