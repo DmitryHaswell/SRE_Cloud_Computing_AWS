@@ -55,29 +55,30 @@
 - select os
 - select t2 micro instance type
 - select DevOpsStudent default 1a subnet
-- select enable for auto-assign for public ip
-- keep storage default 
+- select enable for auto-assign public ip
+- keep storage default 8gb
 - add tags for name
-- add existing security group or add 
+- add existing security group or create a new one
+- make sure port 22 and port 80 allowed
 - review the details
 - launch and select 105|RSA key pair
 
 #### linux commands
-- check service status `systemctl status service_name`
-- start service `sudo systemctl start service_name`
-- stop service `sudo systemctl stop service_name`
-- enable service `systemctl enable service_name`
-- install package `sudo apt install package_name -y`
-- remove package `sudo apt remove package_name -y` 
+- check service status `systemctl status <service_name>`
+- start service `sudo systemctl start <service_name>`
+- stop service `sudo systemctl stop <service_name>`
+- enable service `systemctl enable <service_name>`
+- install package `sudo apt install <package_name> -y`
+- remove package `sudo apt remove <package_name> -y` 
 - view all process `top` 
 - who am I `uname` or `uname -a`
 - where am I `pwd` 
-- create a directory `mkdir dir_name`
+- create a directory `mkdir <name>`
 - how to check dir `ls` or `ls -a` 
-- how to create a file `touch file_name`
-- move a file `mv file_path location__path`
-- delete `sudo rm -rf name`
-- view `cat file_name`
+- how to create a file `touch <name>`
+- move a file `mv <file_path> <location__path>`
+- delete `sudo rm -rf <name>`
+- view file contents `cat <name>`
 
 #### file permisions
 - check permisions `ll`
@@ -128,3 +129,53 @@ sudo ufw allow from any to any port 8080 proto tcp
 ```
 - make sure to set the script as executable
 - make sure to add inbound rule to security group for port 8080
+
+#### Virtual Private Cloud (VPC)
+- Own private data centre
+- Hosted on the public AWS cloud
+- A place where the instances are hosted for sparta
+
+#### Internet gateway
+- network concept
+- connection between the vpc and the internet 
+
+#### Route tables 
+- Contain a set of rules
+- Determine where and how network traffic from subnet is directed  
+
+#### Subnet
+- segmented piece of the vpc network
+- more efficient 
+- minimize traffic
+
+#### Nacls
+- network access controller 
+- enforces a security policy onto devices that access the network
+- security and management
+- 
+#### Security Group
+- virtual firewall
+- set of security rules for inbound and outbound traffic 
+
+#### Secure app on public cloud
+- Add rules to security group
+- Restrict access
+
+#### default outbound rules
+- Allow all traffic by default
+
+
+#### linux kill command
+https://phoenixnap.com/kb/how-to-kill-a-process-in-linux
+
+```bash
+killall <process>
+
+# or 
+
+kill <processID>
+
+# if unresponsive 
+
+kill -9 <processID>
+```
