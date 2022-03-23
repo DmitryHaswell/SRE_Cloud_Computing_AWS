@@ -33,6 +33,7 @@
 
 #### AWS Infrastructure
 ![AWS-regions](AWS-regions.png)
+- Amazon has 26 regions 
 - North America, South America, Europe, China, Asia Pacific, South Africa, and the Middle East
 
 #### Content Delivery Network (CDN)
@@ -47,3 +48,32 @@
 
 #### Diagram
 ![AWS-Diagram](AWS-diagram.png)
+
+#### Set up EC2
+- navigate to ec2 tab
+- select "launch instance"
+- select os
+- select t2 micro instance type
+- select DevOpsStudent default 1a subnet
+- select enable for auto-assign for public ip
+- keep storage default 
+- add tags for name
+- add existing security group or add 
+- review the details
+- launch and select 105|RSA key pair
+
+#### linux commands
+- check service status `systemctl status service_name`
+- start service `sudo systemctl start service_name`
+- stop service `sudo systemctl stop service_name`
+- enable service `systemctl enable service_name`
+- install package `sudo apt install package_name -y`
+- remove package `sudo apt remove package_name -y` 
+- view all process `top` 
+- who am I `uname` or `uname -a`
+- where am I `pwd` 
+- create a directory `mkdir dir_name`
+- how to check dir `ls` or `ls -a` 
+- how to create a file `touch file_name`
+- move a file `mv file_name path`
+- delete a file 
