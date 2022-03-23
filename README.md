@@ -77,6 +77,7 @@
 - how to create a file `touch file_name`
 - move a file `mv file_path location__path`
 - delete `sudo rm -rf name`
+- view `cat file_name`_
 
 #### file permisions
 - check permisions `ll`
@@ -85,3 +86,26 @@
 - read `r`
 - exe `x`
 - https://chmod-calculator.com
+
+#### Bash scripting
+```bash
+#!/bin/bash
+
+# run updates
+sudo apt-get update -y
+
+# run upgrades
+sudo apt-get upgrade -y
+
+# install nginx
+sudo apt-get install nginx -y
+
+# start nginx
+sudo systemctl start nginx
+
+# enable nginx
+sudo systemctl enable nginx
+```
+
+- change the file to exe `chmod +x provision.sh`
+- how to run `./provision.sh`
