@@ -75,5 +75,13 @@
 - create a directory `mkdir dir_name`
 - how to check dir `ls` or `ls -a` 
 - how to create a file `touch file_name`
-- move a file `mv file_name path`
-- delete a file 
+- move a file `mv file_path location__path`
+- delete `sudo rm -rf name`
+
+#### file permisions
+- check permisions `ll`
+- change file permision `chmod permision file_name`
+- write `w` 
+- read `r`
+- exe `x`
+- https://chmod-calculator.com
