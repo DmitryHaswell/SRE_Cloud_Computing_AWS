@@ -77,7 +77,7 @@
 - how to create a file `touch file_name`
 - move a file `mv file_path location__path`
 - delete `sudo rm -rf name`
-- view `cat file_name`_
+- view `cat file_name`
 
 #### file permisions
 - check permisions `ll`
@@ -109,3 +109,22 @@ sudo systemctl enable nginx
 
 - change the file to exe `chmod +x provision.sh`
 - how to run `./provision.sh`
+
+#### Install tomcat
+```bash
+#!/bin/bash
+
+# install tomcat
+sudo apt install tomcat9 -y
+
+# start tomcat
+sudo systemctl start tomcat9
+
+# enable tomcat
+  sudo systemctl enable tomcat9
+
+# allow port 8080 traffic - tomcat default
+sudo ufw allow from any to any port 8080 proto tcp
+```
+- make sure to set the script as executable
+- make sure to add inbound rule to security group for port 8080
