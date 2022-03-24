@@ -179,3 +179,36 @@ kill <processID>
 
 kill -9 <processID>
 ```
+<<<<<<< HEAD
+
+#### Monolith Architechture 
+![monolith](monolith.png)
+- simple but has limitatios and complexity 
+- heavy apps can slow down the start up time
+- each update results into redeploying the full stack app
+- fruitful for simple and lightweight apps
+- not ideal for scalable infrastructure
+- used where there is a set expectation which will not increase in the future
+- e.g. barber shop, school
+
+#### N Tier Architechture & Two Tier Architecture 
+![n-tier-architecture](n-tier-architecture.png)
+- separate responsibility of the program
+- each layer holds its own seperate responsibility 
+- e.g. user interface, application proccess, database
+
+#### Micro-service Architechture
+![micro-service](micro-service.png)
+- separate the program into services 
+- independent teams to manage each service 
+- security benefits, e.g. separate ec2 and database 
+- highly scalable
+- implementing new features or updating existing features does not require full system restart
+
+#### SRE Culture and CICD
+- https://medium.com/@ahshahkhan/devops-culture-and-cicd-3761cfc62450
+- Continuous Integration (CI)
+- Continuous Delivery (CD)
+- Continuous Deployment (CD)
+=======
+>>>>>>> e0bbeb0de90ec7fbaf5f5b22f8aa3c105242e130
