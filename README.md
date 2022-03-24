@@ -152,7 +152,7 @@ sudo ufw allow from any to any port 8080 proto tcp
 - network access controller 
 - enforces a security policy onto devices that access the network
 - security and management
-- 
+
 #### Security Group
 - virtual firewall
 - set of security rules for inbound and outbound traffic 
