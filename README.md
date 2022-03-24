@@ -136,7 +136,7 @@ sudo ufw allow from any to any port 8080 proto tcp
 - A place where the instances are hosted for sparta
 
 #### Internet gateway
-- network concept
+- part of the vpc
 - connection between the vpc and the internet 
 
 #### Route tables 
