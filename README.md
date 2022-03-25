@@ -210,5 +210,23 @@ kill -9 <processID>
 - Continuous Integration (CI)
 - Continuous Delivery (CD)
 - Continuous Deployment (CD)
-=======
->>>>>>> e0bbeb0de90ec7fbaf5f5b22f8aa3c105242e130
+
+#### Simple Storage Service s3
+- globaly available - highly available
+- used for backup
+- disaster recovery plan (DR)
+- S3 classes
+- cost affective 
+- accepts any data
+- charged depending on access frequency requiremnts
+
+- update & upgrade
+- install python 3.7
+- let system know that we are going to use python version python.3
+- check python --version
+- install pip3
+- install awscli
+- et up aws config to store aws keys to access s3 from our ec2
+- CRUD - create a bucket on s3
+- upload data from ec2 to s3 -
+- download - from s3 - delete the data on s3 from ec2 using awscli
