@@ -212,6 +212,7 @@ kill -9 <processID>
 - Continuous Deployment (CD)
 
 #### Simple Storage Service s3
+![s3-]
 - globaly available - highly available
 - used for backup
 - disaster recovery plan (DR)
@@ -220,13 +221,73 @@ kill -9 <processID>
 - accepts any data
 - charged depending on access frequency requiremnts
 
-- update & upgrade
-- install python 3.7
-- let system know that we are going to use python version python.3
-- check python --version
-- install pip3
-- install awscli
-- et up aws config to store aws keys to access s3 from our ec2
-- CRUD - create a bucket on s3
-- upload data from ec2 to s3 -
-- download - from s3 - delete the data on s3 from ec2 using awscli
+#### S3 setup and use
+
+update & upgrade
+```bash
+sudo apt update -y
+sudo apt upgrade -y
+```
+
+install python 3.7
+```bash
+sudo apt-get install python
+```
+
+check python version
+```bash
+python --version
+```
+
+set alias for python3
+```bash
+alias python=python3 
+```
+
+install pip3
+```bash 
+sudo apt-get isntall python3-pip
+```
+
+install awscli
+```bash
+sudo apt install awscli
+python3 -m pip install awscli
+```
+
+Access s3 from ec2 - enter relevant details 
+```bash 
+aws cofnigure
+```
+
+list s3 buckets
+```bash
+aws s3 ls
+```
+
+#### CRUD
+
+make bucket 
+```bash
+aws s3 mb s3://105-sre-dmitry
+```
+
+upload data from ec2 to s3
+```bash
+aws s3 cp sre.txt s3://105-sre-dmitry
+```
+
+download data from s3 to ec2
+```bash
+aws s3 cp s3://105-sre-dmitry/sre.txt /home/ubuntu
+```
+
+remove file inside bucket 
+```bash
+aws s3 rm s3://105-sre-dmitry/sre.txt
+```
+
+remove bucket
+```bash
+aws s3 rb s3://105-sre-dmitry
+```
