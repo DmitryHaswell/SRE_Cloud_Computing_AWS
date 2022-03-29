@@ -291,3 +291,55 @@ remove bucket
 ```bash
 aws s3 rb s3://105-sre-dmitry
 ```
+
+#### Docker
+
+- `docker images` list all images 
+- `indocker pull <image>` download from docker hub
+- `docker ps -a` show all containers
+- `docker ps` show all running containers
+
+
+- `docker run -d -p <port>:<port> <image>` - create contrainer 
+- `docker start <containerID>` start container
+- `docker stop <containerID>` stop container 
+- `docker rm <containerID>` remove caintt
+- `docker rm <containerID> -f` force
+
+example of using ghost 
+```bash
+docker run -d -p 2368:2368 ghost
+```
+
+example of using docker documentation
+```bash 
+docker run -d -p 4000:4000 docs/docker.github.io
+```
+
+enter a container
+```bash 
+docker exec -it <containerID> sh
+``` 
+
+- `alias docker="winpty docker"` set an alias	
+
+- `/usr/share/nginx/html` - html file location
+
+install nano to be able edit 
+- `apt update`
+- `apt install nano`
+- `nano index.html`
+- `docker logs <containerID>` - see changes made
+
+`docker cp <path> <location>` - copy file from locahost to container
+
+#### PUSH IMAGE TO DOCKERHUB
+
+```bash 
+docker commit <containerid> <dockerID>/<reponame>:<tag>
+```
+
+```bash
+docker push <dockerID>/<reponame>:<tag>
+```
+
