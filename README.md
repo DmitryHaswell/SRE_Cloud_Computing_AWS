@@ -212,7 +212,7 @@ kill -9 <processID>
 - Continuous Deployment (CD)
 
 #### Simple Storage Service s3
-![s3-]
+![s3-architecture](s3-architecture.png)
 - globaly available - highly available
 - used for backup
 - disaster recovery plan (DR)
@@ -293,7 +293,17 @@ aws s3 rb s3://105-sre-dmitry
 ```
 
 #### Docker
-
+##### Container vs Virtual Machine
+![docker-diff](docker-vs-vm.png)
+- container only uses resources required
+- docker shares resources 
+- container will reallocate resources if not in use 
+##### Docker Architecture
+![docker-struct](docker-structure.png)
+- docker will pull latest image from docker hub if the latest version is not found on the local machine 
+- uses the image to create a container 
+- multiple containers can be created from the same image
+##### Docker commands 
 - `docker images` list all images 
 - `indocker pull <image>` download from docker hub
 - `docker ps -a` show all containers
