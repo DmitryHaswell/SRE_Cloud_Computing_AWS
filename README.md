@@ -292,7 +292,7 @@ remove bucket
 aws s3 rb s3://105-sre-dmitry
 ```
 
-#### Docker
+### Docker
 ##### Container vs Virtual Machine
 ![docker-diff](docker-vs-vm.png)
 - container only uses resources required
@@ -313,35 +313,41 @@ aws s3 rb s3://105-sre-dmitry
 - `docker run -d -p <port>:<port> <image>` - create contrainer 
 - `docker start <containerID>` start container
 - `docker stop <containerID>` stop container 
-- `docker rm <containerID>` remove caintt
+- `docker rm <containerID>` remove container
 - `docker rm <containerID> -f` force
 
-example of using ghost 
+examples of run 
 ```bash
+# using ghost
 docker run -d -p 2368:2368 ghost
-```
-
-example of using docker documentation
-```bash 
+# using docker documentation
 docker run -d -p 4000:4000 docs/docker.github.io
 ```
 
 enter a container
 ```bash 
+# set an alias otherwise wont work on windows
+alias docker="winpty docker" 	
 docker exec -it <containerID> sh
-``` 
+```
 
-- `alias docker="winpty docker"` set an alias	
 
-- `/usr/share/nginx/html` - html file location
+install nano to be able edit container files 
+```bash 
+apt update
+apt install nano
+nano index.html
+```
 
-install nano to be able edit 
-- `apt update`
-- `apt install nano`
-- `nano index.html`
-- `docker logs <containerID>` - see changes made
+```bash
+# see changes made inside container
+docker logs <containerID>
+```
 
-`docker cp <path> <location>` - copy file from locahost to container
+```bash
+# copy file from locahost to container
+docker cp <path> <containerID>:<path>
+```
 
 #### PUSH IMAGE TO DOCKERHUB
 
