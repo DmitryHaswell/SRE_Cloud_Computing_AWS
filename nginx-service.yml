@@ -1,0 +1,22 @@
+# set version and type 
+apiVersion: v1
+kind: Service
+
+# metadata for name
+metadata:
+  name: nginx-svc
+  namespace: default
+
+# ports for connection 
+spec:
+  ports:
+  - nodePort: 30442 # range is 30000 - 32768
+    port: 80
+    protocol: TCP
+    targetPort: 80
+
+  # define selector
+  selector:
+    app: nginx # conects service to deployment
+
+  type: LoadBalancer

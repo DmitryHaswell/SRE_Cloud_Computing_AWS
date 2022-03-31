@@ -358,4 +358,140 @@ docker commit <containerid> <dockerID>/<reponame>:<tag>
 ```bash
 docker push <dockerID>/<reponame>:<tag>
 ```
+### Automate image building 
+- Crio - Rocker - Docker
+- automate image building of our customised nginx image
+- cteate a `Dockerfile` in the same location as index.html
+- decide which base image to use for your image
+- base image is nginx
+- test image locally before we push to docker hub
 
+Dockerfile 
+```docker
+# select base image, by default pulls latest version
+FROM nginx
+
+# label the image and add optional details
+LABEL MAINTAINER=DMITRY
+
+# copy the data from localhost to container
+COPY index.html /usr/share/nginx/html/ 
+COPY snow-cat.jpg /usr/share/nginx/html/
+
+# expose the required port - 80
+EXPOSE 80
+
+# launch the app 
+CMD ["nginx", "-g", "daemon off;"]
+
+# cmd will run the command to launch the image when we create the container  
+```
+
+Tutorials how to containerise .NET apps
+- https://dotnet.microsoft.com/en-us/learn/aspnet/microservice-tutorial/intro
+- https://docs.microsoft.com/en-us/visualstudio/containers/overview?view=vs-2022
+```bash 
+# build docker image
+docker build -t dmitryhdev/105_sre_nginx_test .
+# check image is created
+docker images
+
+# run container
+docker run -d -p 80:80 dmitryhdev/105_sre_nginx_test
+
+# login
+docker login
+
+# push image
+docker push dmitryhdev/105_sre_nginx_test
+```
+
+## Kubenetes 
+
+What is kubenetes? Kubernetes, also known as K8s, is an open-source system for automating deployment, scaling, and management of containerized applications.
+
+It groups containers that make up an application into logical units for easy management and discovery.
+
+Kubernetes builds upon 15 years of experience of running production workloads at Google, combined with best-of-breed ideas and practices from the community.
+
+Ownership of Kubernetes was transfered to The Linux Foundation. Would run the Docker exclusively but has since expanded support, with more plans with the April 2022 release.  
+
+![k8-pods](Pod-networking.png)
+
+Pod architecture.
+- If a pod is taken down it is restored automatically. 
+- If a build fails it will roll back to a previous working version automatically.
+- Each pod has its own unique ip where traffic can be redirected to.
+- Pods are clones of the same instance used to separate traffic.
+- Auto scalable depending on set rules.
+ 
+Kubenetes commands
+```bash
+# create a service/deployment
+kubectl create -f <filename>
+
+# see all services
+kubectl get svc
+
+# see all pods
+kubectl get pods
+
+# delete deployment
+kubectl delete deployment <deployment-name>
+
+# edit deploy config
+kubectl edit deploy <deployment-name>
+```
+
+YML deployment example
+```yml
+# set version
+apiVersion: apps/v1
+
+kind: Deployment
+
+metadata:
+  name: northwind-api-deployment
+
+spec:
+  selector:
+    matchLabels:
+      app: northwind-api
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: northwind-api
+    spec: 
+      containers:
+      - name: northwind-api
+        image: dmitryhdev/105_sre_northwind
+        ports: 
+        - containerPort: 80
+```
+
+YML file service example
+```yml
+# set version and type 
+apiVersion: v1
+kind: Service
+
+# metadata for name
+metadata:
+  name: northwind-api-svc
+  namespace: default
+
+# ports for connection 
+spec:
+  ports:
+  - nodePort: 30000 # range is 30000 - 32768
+    port: 80
+    protocol: TCP
+    targetPort: 80
+
+  # define selector
+  selector:
+    app: northwind-api # conects service to deployment
+
+  type: LoadBalancer
+```

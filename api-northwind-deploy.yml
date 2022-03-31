@@ -1,0 +1,23 @@
+# set version
+apiVersion: apps/v1
+
+kind: Deployment
+
+metadata:
+  name: northwind-api-deployment
+
+spec:
+  selector:
+    matchLabels:
+      app: northwind-api
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: northwind-api
+    spec: 
+      containers:
+      - name: northwind-api
+        image: dmitryhdev/105_sre_northwind
+        ports: 
+        - containerPort: 80
